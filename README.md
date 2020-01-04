@@ -10,9 +10,9 @@
 
 **3.更换软件源**
 
-`export EDITOR=vi`
+`export EDITOR=vi`   
 
-`apt edit-sources`
+`apt edit-sources`   
 
 `http://mirrors.tuna.tsinghua.edu.cn/termux`
 
@@ -23,12 +23,12 @@
 **5.终端配色**
 
 `sh -c "$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)"`
-选14、6
+   选14、6   
 `~/termux-ohmyzsh/install.sh`
 
 **6.更换主题**
 
-`vim .zshrc`
+`vim .zshrc`   
 更换为`junkfood`或`cloud`
 
 **7.开屏界面编辑**
@@ -45,5 +45,5 @@
 
 **10.安装metasploit**
 
-`pkg install unstable-repo`
+`pkg install unstable-repo`   
 `pkg install metasploit`
