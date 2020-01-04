@@ -22,8 +22,8 @@
 
 **5.终端配色**
 
-`sh -c "$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)"`
-   选14、6   
+`sh -c "$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)"`   
+选14、6   
 `~/termux-ohmyzsh/install.sh`
 
 **6.更换主题**
