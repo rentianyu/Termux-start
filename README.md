@@ -23,7 +23,9 @@
 **5.终端配色**
 
 `sh -c "$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)"`   
+
 选14、6   
+
 `~/termux-ohmyzsh/install.sh`
 
 **6.更换主题**
@@ -37,13 +39,4 @@
 
 **8.三行功能按键**
 
-`mkdir $HOME/.termux ; echo "extra-keys = [['+', '-', '*', '/', '>', '&', 'ENTER', 'BACKSPACE'], ['ESC', 'echo', '.', ':', 'HOME', 'UP', 'END', 'PGUP'], ['TAB', 'CTRL', 'ALT', 'FN', 'LEFT', 'DOWN', 'RIGHT', 'PGDN']]" > $HOME/.termux/termux.properties`
-
-**9.安装nmap**
-
-`pkg install nmap`
-
-**10.安装metasploit**
-
-`pkg install unstable-repo`   
-`pkg install metasploit`
+`mkdir $HOME/.termux ; echo "extra-keys = [['+', '-', '*', '/', '>', '&', 'ENTER', 'BACKSPACE'], ['ESC', 'echo', '.', ':', 'HOME', 'UP', 'END', 'PGUP'], ['TAB', 'CTRL', 'ALT', 'FN', 'LEFT', 'DOWN', 'RIGHT', 'PGDN']]" > $HOME/.termux/termux.properties``
