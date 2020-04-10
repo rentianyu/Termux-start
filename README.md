@@ -65,7 +65,7 @@ mkdir $HOME/.termux ; echo "extra-keys = [['+', '-', '', '/', '>', '&', 'ENTER',
 ```shell
 pkg install tsu			# root环境使用termux命令
 pkg install nmap		# 扫描端口用
-pkg install termux-api 	# termux-api
+pkg install termux-api 		# termux-api
 
 结合一下
 pkg install -y tsu nmap termux-api
