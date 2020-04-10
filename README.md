@@ -48,9 +48,9 @@ echo 'deb https://termux.org/packages/ stable main'>/data/user/0/com.termux/file
 `vim .zshrc`   
 更换为`junkfood`或`cloud`
 
-## 7. 开屏界面编辑
+## 7. 开屏界面清空
 
-`vim $PREFIX/etc/motd`
+`:>$PREFIX/etc/motd`
 
 ## 8. 三行功能按键
 
