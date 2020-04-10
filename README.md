@@ -1,4 +1,9 @@
-# Termux-命令备份   
+# Termux-命令备份
+
+## 0. 软件下载地址
+
+- Termux: https://f-droid.org/packages/com.termux
+- Termux-API: https://f-droid.org/packages/com.termux.api
 
 ## 1. 授予Termux储存权限      
 
