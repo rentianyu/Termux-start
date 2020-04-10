@@ -48,6 +48,8 @@ echo 'deb https://termux.org/packages/ stable main'>/data/user/0/com.termux/file
 `vim .zshrc`   
 更换为`junkfood`或`cloud`
 
+> 这边需要会一点vim命令知识
+
 ## 7. 开屏界面清空
 
 `:>$PREFIX/etc/motd`
@@ -66,9 +68,10 @@ mkdir $HOME/.termux ; echo "extra-keys = [['+', '-', '', '/', '>', '&', 'ENTER',
 pkg install tsu			# root环境使用termux命令
 pkg install nmap		# 扫描端口用
 pkg install termux-api 		# termux-api
+pkg install openssh		# SSH	
 
 结合一下
-pkg install -y tsu nmap termux-api
+pkg install -y tsu nmap termux-api openssh
 ```
 
 
