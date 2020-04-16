@@ -31,30 +31,17 @@ echo 'deb https://termux.org/packages/ stable main'>/data/user/0/com.termux/file
 
 ## 4. 安装常用命令包
 
-`pkg install -y vim curl wget git unzip unrar`
+`pkg install -y vim curl wget git unzip unrar fish`
 
-## 5. 终端配色
+## 5. 设置默认shell为fish
 
-`sh -c "$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)"`   
+`chsh -s fish`
 
-第一个选14，第二个选6   
+## 6. 清空欢迎界面
 
-再次修改终端配色的话执行这个
+`:>$PREFIX/etc/motd && set -U fish_greeting`
 
-`~/termux-ohmyzsh/install.sh`
-
-## 6. 更换主题
-
-`vim .zshrc`   
-更换为`junkfood`或`cloud`
-
-> 这边需要会一点vim命令知识
-
-## 7. 开屏界面清空
-
-`:>$PREFIX/etc/motd`
-
-## 8. 三行功能按键
+## 7. 三行功能按键
 
 ```shell
 mkdir $HOME/.termux ; echo "extra-keys = [['+', '-', '', '/', '>', '&', 'ENTER', 'BACKSPACE'], ['ESC', 'echo', '.', ':', 'HOME', 'UP', 'END', 'PGUP'], ['TAB', 'CTRL', 'ALT', '$', 'LEFT', 'DOWN', 'RIGHT', 'PGDN']]" > $HOME/.termux/termux.properties
@@ -62,7 +49,7 @@ mkdir $HOME/.termux ; echo "extra-keys = [['+', '-', '', '/', '>', '&', 'ENTER',
 
 > 执行后报错正常，Ctrl+d退出软件再重进就配置好了
 
-## 9. 其他
+## 8. 其他
 
 ```shell
 pkg install tsu			# root环境使用termux命令
