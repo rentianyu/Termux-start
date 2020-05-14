@@ -54,7 +54,6 @@ passwd
 
 echo 8.配置ssh
 echo sshd>>$S
-ssh-keygen
 
 echo 9.设置清空fish欢迎语命令到剪贴板
 termux-clipboard-set "set -U fish_greeting"
