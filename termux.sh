@@ -43,4 +43,4 @@ termux-clipboard-set "set -U fish_greeting"
 echo 7.默认启动sshd
 echo sshd>>$s
 
-exit
+fish
