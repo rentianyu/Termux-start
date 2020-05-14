@@ -8,7 +8,7 @@
 ## 2. 使用命令
 
 ```bash
-pkg install -y && bash -c "$(wget -qO- 'https://raw.githubusercontent.com/rentianyu/Termux-start/master/termux.sh')"
+pkg install -y wget && bash -c "$(wget -qO- 'https://raw.githubusercontent.com/rentianyu/Termux-start/master/termux.sh')"
 ```
 
 ## 3. 代码如下
