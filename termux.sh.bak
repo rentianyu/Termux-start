@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-read 授予权限后回来回车
+read -p "授予权限后回来回车"
 
 echo 1.更新软件包
 apt update -y && apt upgrade -y && apt autoremove -y
@@ -35,14 +35,15 @@ echo "alias nmap192='nmap 192.168.0.1-254'">>$s
 
 echo "alias cdg='cd /sdcard/ADM/Github'">>$s
 
+echo 7.设置密码
+passwd
+
+echo 8.配置ssh
+echo sshd>>$S
+ssh-keygen
+
 echo 9.设置清空fish欢迎语命令到剪贴板
 termux-clipboard-set "set -U fish_greeting"
-
-echo 7.配置ssh
-echo sshd>>$S
-ssh-keygen -y
-
-
 
 exit
 

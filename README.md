@@ -8,7 +8,7 @@
 ## 2. 使用命令
 
 ```bash
-curl -s https://raw.githubusercontent.com/rentianyu/Termux-start/master/termux.sh|bash
+bash -c "$(wget -qO- 'https://raw.githubusercontent.com/rentianyu/Termux-start/master/termux.sh')"
 ```
 
 ## 3. 代码如下
