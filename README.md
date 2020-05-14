@@ -60,4 +60,5 @@ echo 7.默认启动sshd
 echo sshd>>$s
 
 fish
+
 ```
