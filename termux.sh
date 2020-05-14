@@ -1,7 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-read 授予权限后回来回车
-
 echo 1.更新软件包
 apt update -y && apt upgrade -y && apt autoremove -y
 
@@ -20,29 +18,29 @@ mkdir ~/.termux;echo "extra-keys = [['+', '-', '\"', '/', '>', '&', 'ENTER', 'BA
 echo 6.定义一些快捷命令
 echo "apti aptr aa lsa .. nmap1 nmap6"
 
+mkdir -p ~/.config/fish
 s=~/.config/fish/config.fish
 
-echo "alias apti='apt install'">>$s
-echo "alias aptr='apt remove'">>$s
-echo "alias aa='apt update -y && apt upgrade -y && apt autoremove -y'">>$s
+echo "
+alias apti='apt install
+alias aptr='apt remove
+alias aa='apt update -y && apt upgrade -y && apt autoremove -y
 
-echo "alias lsa='ls -a'">>$s
-echo "alias ..='cd ..&& ls -a'">>$s
+alias lsa='ls -a
+alias ..='cd ..&& ls -a
 
-echo "alias nmap1='nmap 127.0.0.1'">>$s
-echo "alias nmap6='nmap 166.66.66.1-254'">>$s
-echo "alias nmap192='nmap 192.168.0.1-254'">>$s
+alias nmap1='nmap 127.0.0.1
+alias nmap6='nmap 166.66.66.1-254
+alias nmap192='nmap 192.168.0.1-254
 
-echo "alias cdg='cd /sdcard/ADM/Github'">>$s
+alias cdg='cd /sdcard/ADM/Github'
+
+">>$s
 
 echo 9.设置清空fish欢迎语命令到剪贴板
 termux-clipboard-set "set -U fish_greeting"
 
-echo 7.配置ssh
-echo sshd>>$S
-ssh-keygen -y
-
-
+echo 7.默认启动sshd
+echo sshd>>$s
 
 exit
-
