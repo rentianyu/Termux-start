@@ -16,8 +16,6 @@ pkg install -y wget && bash -c "$(wget -qO- 'https://raw.githubusercontent.com/r
 ```bash
 #!/data/data/com.termux/files/usr/bin/bash
 
-read -p "授予储存权限后回来回车"
-
 echo 1.更新软件包
 apt update -y && apt upgrade -y && apt autoremove -y
 
