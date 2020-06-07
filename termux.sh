@@ -39,6 +39,7 @@ alias cdg='cd /sdcard/ADM/Github'
 
 ">>$s
 
+
 echo 9.设置清空fish欢迎语命令到剪贴板
 termux-clipboard-set "set -U fish_greeting"
 
@@ -46,3 +47,6 @@ echo 7.默认启动sshd
 echo sshd>>$s
 
 fish
+
+
+
