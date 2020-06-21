@@ -9,8 +9,8 @@ apt install -y termux-api termux-auth vim curl git wget unzip unrar fish tsu nma
 echo 3.设置默认shell为fish
 chsh -s fish
 
-echo 4.清空开屏界面
-:>$PREFIX/etc/motd
+echo 4.清空开屏界面和fish欢迎语
+:>$PREFIX/etc/motd && fish -c "set -U fish_greeting"
 
 echo 5.启用三行功能按键
 mkdir ~/.termux;echo "extra-keys = [['+', '-', '\"', '/', '>', '&', 'ENTER', 'BACKSPACE'], ['ESC', 'echo', 'BACKSLASH', ':', 'HOME', 'UP', 'END', 'PGUP'], ['TAB', 'CTRL', 'ALT', '$', 'LEFT', 'DOWN', 'RIGHT', 'PGDN']]">~/.termux/termux.properties
@@ -38,10 +38,6 @@ alias nmap192='nmap 192.168.0.1-254'
 alias cdg='cd /sdcard/ADM/Github'
 
 ">>$s
-
-
-echo 9.设置清空fish欢迎语命令到剪贴板
-termux-clipboard-set "set -U fish_greeting"
 
 echo 7.默认启动sshd
 echo sshd>>$s
