@@ -46,9 +46,17 @@ then
     echo sshd >> $s
     ssh-keygen
 
-    echo 安装并配置oy my fish
+    echo 6.安装并配置oy my fish
     curl -L https://get.oh-my.fish | fish
     omf install ays
+
+    echo 7.显示信息
+    echo '
+    # 设置默认WSL为root用户
+    kali config --default-user root
+    ubuntu2004 config --default-user root
+    '
+
 
     fish
 
