@@ -24,6 +24,7 @@ then
 
     alias lsa='ls -a'
     alias ..='cd ..&& ls -a'
+    alias gitp='git add . && git commit -m " `date '+%Y-%m-%d %T'` " && git push && echo push成功'
 
     alias nmap1='nmap 127.0.0.1'
     alias nmap6='nmap 166.66.66.6'
