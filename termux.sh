@@ -4,7 +4,7 @@ echo 1.更新软件包
 apt update -y && apt upgrade -y && apt autoremove -y
 
 echo 2.安装应用包
-apt install -y termux-api termux-auth vim curl git wget unzip unrar fish tsu nmap python jq openssh
+apt install -y termux-api termux-auth vim git unzip unrar fish tsu nmap python jq openssh nodejs
 
 echo 3.设置默认shell为fish
 chsh -s fish
