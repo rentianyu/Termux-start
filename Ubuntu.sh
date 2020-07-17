@@ -30,7 +30,11 @@ alias nmap1='nmap 127.0.0.1'
 
 ">>$s
 
-    echo 5.Ubuntu设置终端为中文
+    echo 5.配置git
+    git config --global user.name "rentianyu"
+    git config --global user.email "1782898491@qq.com"
+    
+    echo 6.Ubuntu设置终端为中文
 apt install -y language-pack-zh-hans && locale-gen zh_CN.UTF-8 &&
     echo '
 LANG="zh_CN.UTF-8"
@@ -48,7 +52,7 @@ LC_ALL=zh_CN.UTF-8' > /etc/default/locale
 
     echo '稍后重启以应用中文'
     
-    echo 6.一些脚本的下载
+    echo 7.一些脚本的下载
     mkdir ~/Scripts
     cd ~/Scripts
         echo '7.1_宝塔baota.sh'
@@ -58,7 +62,7 @@ LC_ALL=zh_CN.UTF-8' > /etc/default/locale
         echo '7.3_BBR加速脚本'
         wget -O BBR.sh https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh && chmod +x BBR.sh
 
-    echo 7.安装并配置oy my fish
+    echo 8.安装并配置oy my fish
     curl -L https://get.oh-my.fish | fish
     echo "omf install ays"
     
