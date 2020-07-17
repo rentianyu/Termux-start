@@ -4,13 +4,13 @@
 
 ```bash
 # termux
-apt install -y busybox && curl -L https://raw.githubusercontent.com/rentianyu/install/master/Termux.sh | bash
+apt update -y && apt install -y curl && curl -L https://raw.githubusercontent.com/rentianyu/install/master/Termux.sh | bash
 
 # WSL
-apt install -y busybox && curl -L https://raw.githubusercontent.com/rentianyu/install/master/WSL.sh | bash
+apt update -y && apt install -y curl && curl -L https://raw.githubusercontent.com/rentianyu/install/master/WSL.sh | bash
 
 # Ubuntu
-apt install -y busybox && curl -L https://raw.githubusercontent.com/rentianyu/install/master/Ubuntu.sh | bash
+apt update -y && apt install -y curl && curl -L https://raw.githubusercontent.com/rentianyu/install/master/Ubuntu.sh | bash
 ```
 
 ## 2. Termux有关软件下载地址
