@@ -5,7 +5,7 @@ then
     apt update -y && apt upgrade -y && apt autoremove -y
 
     echo 2.安装应用包
-    apt install -y vim git unrar fish nmap python jq openssh wget curl 
+    apt install -y vim git unrar fish nmap python jq openssh wget curl nodejs
 
     echo 3.设置默认shell为fish并清空欢迎语
     chsh -s $(which fish) && fish -c "set -U fish_greeting"
@@ -55,11 +55,11 @@ LC_ALL=zh_CN.UTF-8' > /etc/default/locale
     echo 7.一些脚本的下载
     mkdir ~/Scripts
     cd ~/Scripts
-        echo '7.1_宝塔baota.sh'
+        echo '宝塔baota.sh'
         wget -O baota.sh http://download.bt.cn/install/install-ubuntu_6.0.sh | chmod +x baota.sh
-        echo '7.2_v2ray脚本'
+        echo 'v2ray脚本'
         wget -O v2ray.sh https://git.io/v2ray.sh | chmod +x v2ray.sh
-        echo '7.3_BBR加速脚本'
+        echo 'BBR加速脚本'
         wget -O BBR.sh https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh && chmod +x BBR.sh
 
     echo 8.安装并配置oy my fish
