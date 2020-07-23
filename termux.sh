@@ -41,6 +41,8 @@ alias cdg='cd /sdcard/ADM/Github'
 
 echo 7.默认启动sshd
 echo sshd>>$s
+ssh-keygen
+
 
 fish
 
