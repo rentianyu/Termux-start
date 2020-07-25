@@ -45,6 +45,3 @@ ssh-keygen
 
 
 fish
-
-
-
