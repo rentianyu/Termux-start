@@ -70,4 +70,3 @@ LC_ALL=zh_CN.UTF-8' > /etc/default/locale
 else
     echo "当前不是root用户，请切换到root"
 fi
-
