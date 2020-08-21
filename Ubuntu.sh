@@ -30,9 +30,9 @@ alias nmap1='nmap 127.0.0.1'
 
 ">>$s
 
-    echo 5.配置git
-    git config --global user.name "rentianyu"
-    git config --global user.email "1782898491@qq.com"
+#    echo 5.配置git
+#    git config --global user.name "rentianyu"
+#    git config --global user.email "1782898491@qq.com"
     
     echo 6.Ubuntu设置终端为中文
 apt install -y language-pack-zh-hans ; locale-gen zh_CN.UTF-8 ;
