@@ -5,7 +5,7 @@ then
     apt update -y ; apt upgrade -y ; apt autoremove -y
 
     echo 2.安装应用包
-    apt install -y vim git unrar fish nmap python jq nodejs
+    apt install -y vim git unrar fish nmap python jq nodejs npm nodejs-legacy
 
     echo 3.设置默认shell为fish并清空欢迎语
     chsh -s $(which fish) ; fish -c "set -U fish_greeting"
@@ -20,11 +20,11 @@ then
 alias apti='apt -y install'
 alias aptr='apt -y remove'
 alias apts='apt search'
-alias aa='apt update -y ; apt upgrade -y ; apt autoremove -y ; do-release-upgrade'
+alias aa='apt update -y ; apt upgrade -y ; apt autoremove -y'
 
 alias lsa='ls -a'
 alias ..='cd ..; ls -a'
-alias gitp='git add . ; git commit -m "auto-push" ; git push ; echo push成功'
+alias gitp='git add . ; git commit -m auto-push ; git push ; echo push成功'
 
 alias nmap1='nmap 127.0.0.1'
 
@@ -62,11 +62,16 @@ LC_ALL=zh_CN.UTF-8' > /etc/default/locale
         echo 'BBR加速脚本'
         wget -O BBR.sh https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh ; chmod +x BBR.sh
 
+    echo 8.创建一些文件夹
+    mkdir ~/Github
+    mkdir ~/Scripts
+
     echo 8.安装并配置oy my fish
     curl -L https://get.oh-my.fish | fish
     echo "omf install ays"
-    
+    # fish -c "omf install ays"
 
 else
     echo "当前不是root用户，请切换到root"
 fi
+
