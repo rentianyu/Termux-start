@@ -5,7 +5,7 @@ then
     apt update -y ; apt upgrade -y ; apt autoremove -y
 
     echo 2.安装应用包
-    apt install -y vim git unrar fish nmap python jq nodejs npm nodejs-legacy
+    apt install -y vim git unrar fish nmap python jq nodejs npm
 
     echo 3.设置默认shell为fish并清空欢迎语
     chsh -s $(which fish) ; fish -c "set -U fish_greeting"
