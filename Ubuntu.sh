@@ -69,8 +69,8 @@ ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
     mkdir ~/Scripts
 
     echo 8.安装并配置oy my fish
-    curl -L https://get.oh-my.fish | fish
     echo "omf install ays"
+    curl -L https://get.oh-my.fish | fish
     # fish -c "omf install ays"
 
 else
