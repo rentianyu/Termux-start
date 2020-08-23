@@ -35,7 +35,7 @@ alias nmap1='nmap 127.0.0.1'
 #    git config --global user.email "1782898491@qq.com"
     
     echo 6.Ubuntu设置终端为中文以及北京时间
-apt install -y language-pack-zh-hans ; locale-gen zh_CN.UTF-8 ;
+apt install -y fonts-noto-cjk language-pack-zh-hans ; locale-gen zh_CN.UTF-8 ;
     echo '
 LANG="zh_CN.UTF-8"
 LANGUAGE="zh_CN:zh:en_US:en"
