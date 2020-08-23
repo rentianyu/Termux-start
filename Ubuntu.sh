@@ -34,7 +34,7 @@ alias nmap1='nmap 127.0.0.1'
 #    git config --global user.name "rentianyu"
 #    git config --global user.email "1782898491@qq.com"
     
-    echo 6.Ubuntu设置终端为中文
+    echo 6.Ubuntu设置终端为中文以及北京时间
 apt install -y language-pack-zh-hans ; locale-gen zh_CN.UTF-8 ;
     echo '
 LANG="zh_CN.UTF-8"
@@ -50,7 +50,10 @@ LC_TELEPHONE="zh_CN.UTF-8"
 LC_MEASUREMENT="zh_CN.UTF-8"
 LC_ALL=zh_CN.UTF-8' > /etc/default/locale
 
-    echo '稍后重启以应用中文'
+rm -rf /etc/localtime
+ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+    echo '稍后重新连接服务器以应用中文'
     
     echo 7.一些脚本的下载
     mkdir ~/Scripts
@@ -59,9 +62,8 @@ LC_ALL=zh_CN.UTF-8' > /etc/default/locale
         wget -O baota.sh http://download.bt.cn/install/install-ubuntu_6.0.sh | chmod +x baota.sh
         echo 'v2ray脚本'
         wget -O v2ray.sh https://git.io/v2ray.sh | chmod +x v2ray.sh
-        echo 'BBR加速脚本'
-        wget -O BBR.sh https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh ; chmod +x BBR.sh
-
+    cd ~
+    
     echo 8.创建一些文件夹
     mkdir ~/Github
     mkdir ~/Scripts
