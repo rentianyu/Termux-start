@@ -5,7 +5,7 @@ then
     apt update -y ; apt upgrade -y ; apt autoremove -y
 
     echo 2.安装应用包
-    apt install -y vim git unrar fish nmap python jq nodejs npm
+    apt install -y vim git unrar fish nmap python jq nodejs npm dos2unix
 
     echo 3.设置默认shell为fish并清空欢迎语
     chsh -s $(which fish) ; fish -c "set -U fish_greeting"
@@ -66,7 +66,12 @@ ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
     
     echo 8.创建一些文件夹
     mkdir ~/Github
-    mkdir ~/Scripts
+#    mkdir ~/Scripts
+
+    echo 9.配置Github
+    git config --global user.email "1782898491@qq.com"
+    git config --global user.name "rentianyu"
+
 
     echo 8.安装并配置oy my fish
     echo "omf install ays"
