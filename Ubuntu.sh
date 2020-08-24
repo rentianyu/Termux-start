@@ -59,14 +59,28 @@ ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
     mkdir ~/Scripts
     cd ~/Scripts
         echo '宝塔baota.sh'
-        wget -O baota.sh http://download.bt.cn/install/install-ubuntu_6.0.sh | chmod +x baota.sh
+        wget -O baota.sh http://download.bt.cn/install/install-ubuntu_6.0.sh && chmod +x baota.sh
         echo 'v2ray脚本'
-        wget -O v2ray.sh https://git.io/v2ray.sh | chmod +x v2ray.sh
-    cd ~
+        wget -O v2ray.sh https://git.io/v2ray.sh && chmod +x v2ray.sh
     
-    echo 8.创建一些文件夹
+    
+    echo 8.创建一些文件夹和一些文件
     mkdir ~/Github
-#    mkdir ~/Scripts
+
+    mkdir ~/Task
+
+    cd ~/Task
+
+    echo '# Ad-set-hosts
+cd ~/Github/Ad-set-hosts ; bash update.sh
+
+# API
+cd ~/Github/API ; bash update.sh
+' > hour.sh && chmod +x hour.sh
+
+    touch day.sh && chomod +x day.sh
+
+    cd ~
 
     echo 9.配置Github
     git config --global user.email "1782898491@qq.com"
