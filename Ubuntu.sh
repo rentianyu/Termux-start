@@ -80,7 +80,7 @@ cd ~/Github/Ad-set-hosts ; bash update.sh
 cd ~/Github/API ; bash update.sh
 ' > hour.sh && chmod +x hour.sh
 
-    touch day.sh && chomod +x day.sh
+    touch day.sh && chmod +x day.sh
 
     cd ~
 
