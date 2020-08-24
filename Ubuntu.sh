@@ -24,6 +24,8 @@ alias aa='apt update -y ; apt upgrade -y ; apt autoremove -y'
 
 alias lsa='ls -a'
 alias ..='cd ..; ls -a'
+alias ll='ls -al'
+
 alias gitp='git add . ; git commit -m auto-push ; git push ; echo push成功'
 
 alias nmap1='nmap 127.0.0.1'
