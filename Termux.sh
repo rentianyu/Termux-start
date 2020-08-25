@@ -49,8 +49,8 @@ mkdir -p /sdcard/ADM/Github
 
 echo 7.ssh有关
 echo sshd>>$s
-mv -f ~/.ssh ~/.ssh_bak
-ssh-keygen -t dsa -f ~/.ssh/id_dsa -P ""
+# mv -f ~/.ssh ~/.ssh_bak
+# ssh-keygen -t rsa -f ~/.ssh/id_dsa -P ""
 cat ~/.ssh/*.pub | termux-clipboard-set
 echo 'Host router
     HostName 192.168.0.1
