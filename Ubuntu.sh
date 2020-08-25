@@ -81,8 +81,8 @@ cd ~/Github/API ; bash update.sh
     cd ~
 
     echo 9.配置ssh和Github
-    mv -f ~/.ssh ~/.ssh_bak
-    ssh-keygen -t rsa -f ~/.ssh/id_dsa  -P ""
+#    mv -f ~/.ssh ~/.ssh_bak
+#    ssh-keygen -t rsa -f ~/.ssh/id_rsa -P ""
     cat ~/.ssh/*.pub
     git config --global user.email "1782898491@qq.com"
     git config --global user.name "rentianyu"
