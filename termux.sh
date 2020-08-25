@@ -4,7 +4,7 @@ echo 1.更新软件包
 apt update -y && apt upgrade -y && apt autoremove -y
 
 echo 2.安装应用包
-apt install -y termux-api termux-auth vim git unzip unrar fish tsu nmap python jq openssh nodejs npm
+apt install -y termux-api termux-auth vim git unzip unrar fish tsu nmap python jq openssh openssh
 
 echo 3.设置默认shell为fish
 chsh -s fish
@@ -38,11 +38,14 @@ alias nmap192='nmap 192.168.0.1-254'
 alias gitp='git add . ; git commit -m auto-push ; git push ; echo push成功'
 
 alias cdg='cd /sdcard/ADM/Github'
-ln -s /sdcard/Android/data/com.tencent.mobileqq/Tencent/QQfile_recv/ ~/QQ
 
 alias vps='ssh vps'
 
 ">>$s
+
+echo 8.创建一些文件和文件夹
+ln -s /sdcard/Android/data/com.tencent.mobileqq/Tencent/QQfile_recv/ ~/QQ
+mkdir -p /sdcard/ADM/Github
 
 echo 7.ssh有关
 echo sshd>>$s
@@ -57,7 +60,7 @@ echo 'Host router
 Host vps
     HostName 0
     User root
-    Port 22'>~/.ssh/config
+    Port 22' > ~/.ssh/config
 
 
 echo 8.配置git
