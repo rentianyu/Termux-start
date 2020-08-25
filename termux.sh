@@ -4,7 +4,7 @@ echo 1.更新软件包
 apt update -y && apt upgrade -y && apt autoremove -y
 
 echo 2.安装应用包
-apt install -y termux-api termux-auth vim git unzip unrar fish tsu nmap python jq openssh nodejs
+apt install -y termux-api termux-auth vim git unzip unrar fish tsu nmap python jq openssh nodejs npm
 
 echo 3.设置默认shell为fish
 chsh -s fish
@@ -29,19 +29,41 @@ alias aa='apt update -y && apt upgrade -y && apt autoremove -y'
 
 alias lsa='ls -a'
 alias ..='cd ..&& ls -a'
+alias ll='ls -al'
 
 alias nmap1='nmap 127.0.0.1'
-alias nmap6='nmap 166.66.66.6'
-alias nmap66='nmap 166.66.66.1-254'
+alias nmap6='nmap 192.168.0.6'
 alias nmap192='nmap 192.168.0.1-254'
 
+alias gitp='git add . ; git commit -m auto-push ; git push ; echo push成功'
+
 alias cdg='cd /sdcard/ADM/Github'
+ln -s /sdcard/Android/data/com.tencent.mobileqq/Tencent/QQfile_recv/ ~/QQ
+
+alias vps='ssh vps'
 
 ">>$s
 
-echo 7.默认启动sshd
+echo 7.ssh有关
 echo sshd>>$s
-ssh-keygen
+mv -f ~/.ssh ~/.ssh_bak
+ssh-keygen -t dsa -f ~/.ssh/id_dsa -P ""
+cat ~/.ssh/*.pub | termux-clipboard-set
+echo 'Host router
+    HostName 192.168.0.1
+    User root
+    Port 22
+
+Host vps
+    HostName 0
+    User root
+    Port 22'>~/.ssh/config
 
 
-fish
+echo 8.配置git
+git config --global user.name "rentianyu"
+git config --global user.email "1782898491@qq.com"
+
+echo 9.安装并配置oy my fish
+termux-clipboard-set "omf install ays"
+curl -L https://get.oh-my.fish | fish

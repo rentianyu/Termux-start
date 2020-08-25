@@ -32,10 +32,6 @@ alias nmap1='nmap 127.0.0.1'
 
 ">>$s
 
-#    echo 5.配置git
-#    git config --global user.name "rentianyu"
-#    git config --global user.email "1782898491@qq.com"
-    
     echo 6.Ubuntu设置终端为中文以及北京时间
 apt install -y fonts-noto-cjk language-pack-zh-hans ; locale-gen zh_CN.UTF-8 ;
     echo '
@@ -84,7 +80,10 @@ cd ~/Github/API ; bash update.sh
 
     cd ~
 
-    echo 9.配置Github
+    echo 9.配置ssh和Github
+    mv -f ~/.ssh ~/.ssh_bak
+    ssh-keygen -t dsa -f ~/.ssh/id_dsa  -P ""
+    cat ~/.ssh/*.pub
     git config --global user.email "1782898491@qq.com"
     git config --global user.name "rentianyu"
 
@@ -92,7 +91,7 @@ cd ~/Github/API ; bash update.sh
     echo 8.安装并配置oy my fish
     echo "omf install ays"
     curl -L https://get.oh-my.fish | fish
-    # fish -c "omf install ays"
+
 
 else
     echo "当前不是root用户，请切换到root"
