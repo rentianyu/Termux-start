@@ -4,7 +4,7 @@ echo 1.更新软件包
 apt update -y && apt upgrade -y && apt autoremove -y
 
 echo 2.安装应用包
-apt install -y termux-api termux-auth vim git unzip unrar fish tsu nmap python jq openssh openssh
+apt install -y termux-api termux-auth vim git unzip unrar fish tsu zsh nmap python jq cronie openssh
 
 echo 3.设置默认shell为fish
 chsh -s fish
@@ -46,6 +46,12 @@ alias vps='ssh vps'
 echo 8.创建一些文件和文件夹
 ln -s /sdcard/Android/data/com.tencent.mobileqq/Tencent/QQfile_recv/ ~/QQ
 mkdir -p /sdcard/ADM/Github
+mkdir ~/task
+:>~/task/day.sh
+chmod +x ~/task/day.sh
+:>~/task/hour.sh
+chmod +x ~/task/hour.sh
+
 
 echo 7.ssh有关
 echo sshd>>$s
@@ -69,4 +75,11 @@ git config --global user.email "1782898491@qq.com"
 
 echo 9.安装并配置oy my fish
 termux-clipboard-set "omf install ays"
-curl -L https://get.oh-my.fish | fish
+curl -L https://get.oh-my.fish > ${f=omf.fish}
+chmod +x $f
+echo 'exit 0
+exit 1
+return'>> $f
+fish -c ./$f
+
+
