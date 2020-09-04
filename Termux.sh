@@ -76,5 +76,5 @@ git config --global user.email "1782898491@qq.com"
 echo 9.安装并配置oy my fish
 termux-clipboard-set "omf install ays"
 curl -L https://get.oh-my.fish > omf.fish
-echo exit > omf.fish
+echo exit >> omf.fish
 fish omf.fish
