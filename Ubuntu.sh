@@ -26,6 +26,8 @@ alias lsa='ls -a'
 alias ..='cd ..; ls -a'
 alias ll='ls -al'
 
+alias cdg='cd ~/Github ; ls'
+
 alias gitp='git add . ; git commit -m auto-push ; git push ; echo push成功'
 
 alias nmap1='nmap 127.0.0.1'

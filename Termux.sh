@@ -37,7 +37,7 @@ alias nmap192='nmap 192.168.0.1-254'
 
 alias gitp='git add . ; git commit -m auto-push ; git push ; echo push成功'
 
-alias cdg='cd /sdcard/ADM/Github'
+alias cdg='cd /sdcard/ADM/Github ; ls'
 
 alias vps='ssh vps'
 

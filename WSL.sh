@@ -31,7 +31,7 @@ then
     alias nmap66='nmap 166.66.66.1-254'
     alias nmap192='nmap 192.168.0.1-254'
 
-    alias cdg='cd /mnt/d/10.code/2.Github'
+    alias cdg='cd /mnt/d/10.code/2.Github ; ls'
     alias wincopy='clip.exe'
     alias winpaste='powershell.exe Get-Clipboard'
 
