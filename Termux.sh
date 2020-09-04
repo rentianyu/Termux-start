@@ -79,7 +79,7 @@ curl -L https://get.oh-my.fish > ${f=omf.fish}
 chmod +x $f
 echo 'exit 0
 exit 1
-return'> $f
+return'>> $f
 fish -c ./$f
 
 
