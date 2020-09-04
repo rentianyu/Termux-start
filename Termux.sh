@@ -49,7 +49,7 @@ mkdir -p /sdcard/ADM/Github
 mkdir ~/task
 :>~/task/day.sh
 chmod +x ~/task/day.sh
-;>~/task/hour.sh
+:>~/task/hour.sh
 chmod +x ~/task/hour.sh
 
 
