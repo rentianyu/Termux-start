@@ -1,7 +1,7 @@
 ## 一、项目简介
 
+- 此脚本为Termux或Ubuntu安装之后的初始化脚本   
 - 本项目仅为自用，出问题改不负责   
-- 此脚本为Termux或Ubuntu安装之后的初始化脚本  
 - 项目地址：https://github.com/rentianyu/install   
  
 - **如果是要在Termux上运行请注意以下几点**   
