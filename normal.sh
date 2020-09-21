@@ -1,4 +1,10 @@
 
+# 说明一些变量
+# fish 的配置文件
+s=~/.config/fish/config.fish
+
+#-------分割线-------#
+
 echo 1.更新软件包
 apt update -y ; apt upgrade -y ; apt autoremove -y
 
@@ -11,7 +17,6 @@ chsh -s $(which fish) ; fish -c "set -U fish_greeting"
 echo 4.定义一些快捷命令
 
 mkdir -p ~/.config/fish
-s=~/.config/fish/config.fish
 
 echo "
 alias apti='apt -y install'
@@ -33,8 +38,6 @@ alias nmap192='nmap 192.168.0.1-255'
 
 alias mi6='ssh mi6'
 alias vps='ssh vps'
-
-
 
 ">$s
 
