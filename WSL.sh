@@ -43,9 +43,6 @@ then
 
     ">>$s
 
-    echo 5.配置sshd
-    echo sshd >> $s
-    ssh-keygen
 
     echo 6.安装并配置oy my fish
     curl -L https://get.oh-my.fish | fish
