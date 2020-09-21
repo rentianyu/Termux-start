@@ -21,7 +21,7 @@
 # 前言结束
 
 # 传入参数判断
-if [[ ! -d $1 ]]; then
+if [ ! -d $1 ]; then
     i=$1
     echo -e "正在使用静默模式$1"
     else
@@ -29,7 +29,7 @@ if [[ ! -d $1 ]]; then
 fi
 
 # DD系统判断
-if [[ $i = 3 ]]; then
+if [ $i = 3 ]; then
     apt install -y xz-utils openssl gawk file
     wget --no-check-certificate https://shell.p1e.cn/reinstall/Network-Reinstall-System-Modify.sh && chmod a+x Network-Reinstall-System-Modify.sh
     bash Network-Reinstall-System-Modify.sh -Ubuntu_18.04
@@ -94,8 +94,7 @@ if [[ $i = 1 || $i = 2 ]]; then
 
     echo 配置ssh
     mkdir ~/.ssh
-    echo '
-    Host mi6
+    echo 'Host mi6
         HostName 192.168.0.2
         User u0_a
         Port 8022
@@ -119,17 +118,23 @@ if [[ $i = 1 || $i = 2 ]]; then
 fi
 
 # 1 模式独有
-if [[ $i = 1 ]]; then
+if [ $i = 1 ]; then
 
     # Termux
     echo 安装软件包
     apt install -y termux-api termux-auth tsu cronie openssh
 
     echo 设置默认shell为fish并清空termux启动语和fish欢迎语
-    chsh -s fish && :>$PREFIX/etc/motd && fish -c "set -U fish_greeting"
+    chsh -s fish
+    :>$PREFIX/etc/motd
+    fish -c "set -U fish_greeting"
+
+
+    echo 清空开屏界面和fish欢迎语
+     && fish -c "set -U fish_greeting"
 
     echo 启用三行功能按键
-    mkdir ~/.termux;echo "extra-keys = [[[['+', '-', '\"', '/', '>', '&', 'ENTER', 'BACKSPACE']], [['ESC', 'echo', 'BACKSLASH', ':', 'HOME', 'UP', 'END', 'PGUP']], [['TAB', 'CTRL', 'ALT', '$', 'LEFT', 'DOWN', 'RIGHT', 'PGDN']]]]">~/.termux/termux.properties
+    mkdir ~/.termux;echo "extra-keys = [['+', '-', '\"', '/', '>', '&', 'ENTER', 'BACKSPACE'], ['ESC', 'echo', 'BACKSLASH', ':', 'HOME', 'UP', 'END', 'PGUP'], ['TAB', 'CTRL', 'ALT', '$', 'LEFT', 'DOWN', 'RIGHT', 'PGDN']]">~/.termux/termux.properties
 
 
     echo 创建文件和文件夹
@@ -166,7 +171,7 @@ if [[ $i = 1 ]]; then
     "
 
 # 2 模式独有
-elif [[ $i = 2 ]]; then
+elif [ $i = 2 ]; then
 
     # Ubuntu
     echo 安装软件包
