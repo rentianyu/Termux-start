@@ -94,7 +94,8 @@ if [[ $i = 1 || $i = 2 ]]; then
 
     echo 配置ssh
     mkdir ~/.ssh
-    echo 'Host mi6
+    echo '
+    Host mi6
         HostName 192.168.0.2
         User u0_a
         Port 8022
