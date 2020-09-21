@@ -1,19 +1,34 @@
-# 重装系统命令备份
+## 一、项目简介
 
-## 1. 配置安装命令
+- 本项目仅为自用，出问题改不负责   
+- 此脚本为Termux或Ubuntu安装之后的初始化脚本  
+- 项目地址：https://github.com/rentianyu/install   
+ 
+- **如果是要在Termux上运行请注意以下几点**   
+(1) 至少授予Termux储存权限（最好是权限全给）   
+(2) 如果链接termux类命令到系统请保证termux具有root权限并授予Termux API软件所有权限和自启动权限   
+(3) 安卓9自用，其他自测   
+
+## 二、配置安装命令
+
+### 手动模式
 
 ```bash
-# termux
-apt update -y && apt install -y curl && curl -L https://raw.githubusercontent.com/rentianyu/install/master/Termux.sh | bash
+apt update -y && apt install -y curl && curl -L https://raw.githubusercontent.com/rentianyu/install/master/all.sh | bash
+```
 
-# WSL
-apt update -y && apt install -y curl && curl -L https://raw.githubusercontent.com/rentianyu/install/master/WSL.sh | bash
+### 静默模式
 
-# Ubuntu
-apt update -y && apt install -y curl && curl -L https://raw.githubusercontent.com/rentianyu/install/master/Ubuntu.sh | bash
+```bash
+apt update -y && apt install -y curl && curl -L https://raw.githubusercontent.com/rentianyu/install/master/all.sh > ~/all.sh
+chomod +x ~/all.sh
+bash ~/all.sh 参数
 
-# 网易云签到、听歌脚本
-curl -L https://raw.githubusercontent.com/rentianyu/install/master/netease >/usr/bin/netease && chmod +x /usr/bin/netease
+# 参数如下
+    1. 为 Termux 初始化
+    2. 为 Ubuntu 初始化
+    3. 为 vps 安装DD系统
+
 ```
 
 ## 2. Termux有关软件下载地址
