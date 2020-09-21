@@ -137,7 +137,7 @@ if [ $i = 1 ]; then
     ln -s /sdcard/Android/data/com.tencent.mobileqq/Tencent/QQfile_recv/ ~/qq
     mkdir -p /sdcard/ADM/github
     ln -s /sdcard/ADM/github ~/github
-    ln -s /sdcard/ADM ~/github
+    ln -s /sdcard/ADM ~/adm
 
 
     echo 定义一些命令
@@ -145,7 +145,8 @@ if [ $i = 1 ]; then
     alias cdq='cd ~/qq;ls'
     alias cda='cd /sdcard/ADM;ls'
     sshd
-    crond
+    service-daemon restart crond
+    clear
     ">>$s
 
     echo 链接termux类命令到系统
