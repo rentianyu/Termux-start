@@ -129,10 +129,6 @@ if [ $i = 1 ]; then
     :>$PREFIX/etc/motd
     fish -c "set -U fish_greeting"
 
-
-    echo 清空开屏界面和fish欢迎语
-     && fish -c "set -U fish_greeting"
-
     echo 启用三行功能按键
     mkdir ~/.termux;echo "extra-keys = [['+', '-', '\"', '/', '>', '&', 'ENTER', 'BACKSPACE'], ['ESC', 'echo', 'BACKSLASH', ':', 'HOME', 'UP', 'END', 'PGUP'], ['TAB', 'CTRL', 'ALT', '$', 'LEFT', 'DOWN', 'RIGHT', 'PGDN']]">~/.termux/termux.properties
 
