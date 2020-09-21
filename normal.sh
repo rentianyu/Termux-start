@@ -69,5 +69,9 @@ git config --global user.name "rentianyu"
 
 
 echo 8.安装oy my fish
-echo "omf install ays"
+echo "
+
 curl -L https://get.oh-my.fish | fish
+
+omf install ays
+"
