@@ -49,7 +49,7 @@ cd ~/Task
 touch day.ssh
 touch hour.sh
 
-echo 9.配置ssh和Github
+echo 9.配置ssh
 mkdir ~/.ssh
 echo 'Host router
     HostName 192.168.0.1
@@ -60,11 +60,14 @@ Host vps
     HostName 0
     User root
     Port 22' > ~/.ssh/config
+
 cat ~/.ssh/*.pub
+
+echo 9.配置Github
 git config --global user.email "1782898491@qq.com"
 git config --global user.name "rentianyu"
 
 
-echo 8.安装并配置oy my fish
+echo 8.安装oy my fish
 echo "omf install ays"
 curl -L https://get.oh-my.fish | fish
