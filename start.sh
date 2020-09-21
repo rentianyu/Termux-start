@@ -52,7 +52,7 @@ if [[ $i = 1 || $i = 2 ]]; then
     apt upgrade -y ; apt autoremove -y
 
     echo 安装应用包
-    apt install -y vim git zip unzip wget fish nmap jq dos2unix
+    apt install -y vim git zip unzip curl fish nmap jq dos2unix
 
     echo 定义一些快捷命令
     mkdir -p ~/.config/fish
@@ -122,7 +122,7 @@ if [ $i = 1 ]; then
 
     # Termux
     echo 安装软件包
-    apt install -y termux-api termux-auth tsu cronie openssh
+    apt update -y && apt install -y termux-api termux-auth tsu cronie openssh
 
     echo 设置默认shell为fish并清空termux启动语和fish欢迎语
     chsh -s fish
@@ -171,7 +171,7 @@ elif [ $i = 2 ]; then
 
     # Ubuntu
     echo 安装软件包
-    apt install -y python nodejs npm crontab
+    apt update -y && apt install -y python nodejs npm
 
 
     echo 设置默认shell为fish并清空欢迎语

@@ -14,15 +14,13 @@
 ### 手动模式
 
 ```bash
-apt update -y && apt install -y curl && curl -L https://raw.githubusercontent.com/rentianyu/install/master/all.sh | bash
+apt update -y && apt install -y wget && bash <(wget -qO- 'https://raw.githubusercontent.com/rentianyu/install/master/start.sh')
 ```
 
 ### 静默模式
 
 ```bash
-apt update -y && apt install -y curl && curl -L https://raw.githubusercontent.com/rentianyu/install/master/all.sh > ~/all.sh
-chomod +x ~/all.sh
-bash ~/all.sh 参数
+apt update -y && apt install -y wget && bash <(wget -qO- 'https://raw.githubusercontent.com/rentianyu/install/master/start.sh') 参数
 
 # 参数如下
     1. 为 Termux 初始化
