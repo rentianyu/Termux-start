@@ -54,7 +54,7 @@ if [[ $i = 1 || $i = 2 ]]; then
     apt upgrade -y ; apt autoremove -y
 
     echo 安装应用包
-    apt install -y vim git zip unzip curl fish nmap jq dos2unix
+    apt install -y vim git zip unzip curl fish nmap jq dos2unix htop
 
     echo 定义一些快捷命令
     mkdir -p ~/.config/fish
