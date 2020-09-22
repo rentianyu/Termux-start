@@ -54,7 +54,8 @@ if [[ $i = 1 || $i = 2 ]]; then
     apt upgrade -y ; apt autoremove -y
 
     echo 安装应用包
-    apt install -y vim git zip unzip curl fish nmap jq dos2unix htop
+    apt install -y vim git zip unzip curl fish nmap jq dos2unix htop python3-dev python3-pip python3-setuptools
+    pip3 install thefuck
 
     echo 定义一些快捷命令
     mkdir -p ~/.config/fish
@@ -84,6 +85,8 @@ if [[ $i = 1 || $i = 2 ]]; then
     alias vps='ssh vps'
     alias router='ssh router'
 
+    thefuck --alias | source
+    
     ">$s
 
 
