@@ -153,7 +153,7 @@ if [ $i = 1 ]; then
     echo "
     alias cdq='cd ~/qq;ls'
     alias cda='cd /sdcard/ADM;ls'
-    sshd
+    ps -A | grep sshd || sshd
     ps -A | grep crond || crond
     ">>$s
 
