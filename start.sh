@@ -154,8 +154,7 @@ if [ $i = 1 ]; then
     alias cdq='cd ~/qq;ls'
     alias cda='cd /sdcard/ADM;ls'
     sshd
-    service-daemon restart crond
-    clear
+    ps -A | grep crond || crond
     ">>$s
 
     echo 链接termux类命令到系统
