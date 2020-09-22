@@ -54,8 +54,7 @@ if [[ $i = 1 || $i = 2 ]]; then
     apt upgrade -y ; apt autoremove -y
 
     echo 安装应用包
-    apt install -y vim git zip unzip curl fish nmap jq dos2unix htop python3-dev python3-pip python3-setuptools
-    pip3 install thefuck
+    apt install -y vim git zip unzip curl fish nmap jq dos2unix htop
 
     echo 定义一些快捷命令
     mkdir -p ~/.config/fish
@@ -183,7 +182,8 @@ elif [ $i = 2 ]; then
 
     # Ubuntu
     echo 安装软件包
-    apt update -y && apt install -y python nodejs npm
+    apt update -y && apt install -y python nodejs npm python3-dev python3-pip python3-setuptools
+    pip3 install thefuck
 
 
     echo 设置默认shell为fish并清空欢迎语
