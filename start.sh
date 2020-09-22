@@ -205,7 +205,7 @@ elif [ $i = 2 ]; then
     ln -s /mnt/d/10.code/2.Github ~/github
 
     echo Ubuntu设置终端为中文以及北京时间
-    apt install -y fonts-noto-cjk language-pack-zh-hans ; locale-gen zh_CN.UTF-8 ;
+    apt install -y fonts-noto-cjk language-pack-zh-hans ;
     echo '
     LANG="zh_CN.UTF-8"
     LANGUAGE="zh_CN:zh:en_US:en"
@@ -219,6 +219,7 @@ elif [ $i = 2 ]; then
     LC_TELEPHONE="zh_CN.UTF-8"
     LC_MEASUREMENT="zh_CN.UTF-8"
     LC_ALL=zh_CN.UTF-8' > /etc/default/locale
+    locale-gen zh_CN.UTF-8
 
     rm -rf /etc/localtime
     ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
