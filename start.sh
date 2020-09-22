@@ -95,6 +95,7 @@ if [[ $i = 1 || $i = 2 ]]; then
     chmod +x ~/task/hour.sh
 
     echo 配置ssh
+    if [ -d ~/.ssh/config ]; then
     mkdir ~/.ssh
     echo '
     Host mi6
@@ -111,7 +112,8 @@ if [[ $i = 1 || $i = 2 ]]; then
         HostName 192.168.0.1
         User root
         Port 22' > ~/.ssh/config
-
+    fi
+    
     cat ~/.ssh/*.pub
 
     echo 配置github
@@ -125,7 +127,11 @@ if [ $i = 1 ]; then
 
     # Termux
     echo 安装软件包
-    apt update -y && apt install -y termux-api termux-auth tsu cronie openssh
+    apt update -y && apt install -y termux-api termux-auth tsu cronie
+
+    if [ -d ~/.ssh/*.pub ]; then
+        apt install -y openssh
+    fi
 
     echo 设置默认shell为fish并清空termux启动语和fish欢迎语
     chsh -s fish
@@ -154,13 +160,13 @@ if [ $i = 1 ]; then
 
     echo 链接termux类命令到系统
     su -c '
-    mount -o rw,remount /system
+    mount -o rw,remount /system/bin
     rm -rf /system/bin/termux*
     for i in $(ls /data/data/com.termux/files/usr/bin/termux*)
     do
     ln -s $i /system/bin
     done
-    mount -o ro,remount /system'
+    mount -o ro,remount /system/bin'
 
     echo 安装oy my fish
     echo "
