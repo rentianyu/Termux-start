@@ -25,7 +25,7 @@
 ## 二、使用方法
 
 ```bash
-apt update -y && apt install -y wget && bash <(wget -qO- 'https://raw.githubusercontent.com/rentianyu/install/master/start.sh')
+apt update -y && apt install -y wget && bash <(wget -qO- https://raw.githubusercontent.com/rentianyu/install/master/start.sh)
 ```
 
 ## 三、Termux有关软件下载地址
