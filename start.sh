@@ -100,7 +100,6 @@ until [ $i == 0 ]; do
         su -c "
         mount --remount -w /system ; mount --remount -w /
 
-        rm /system/bin/termux*
         for a in $(ls -l /system/bin/* | grep termux | sed 's/.*:.. //g;s/ ->.*//g')
         do
             rm $a
