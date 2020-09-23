@@ -339,6 +339,6 @@ until [ $i == 0 ]; do
 
     fi
 
-    sleep 10s
+    sleep 5s
 
 done
