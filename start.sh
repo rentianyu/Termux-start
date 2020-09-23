@@ -65,7 +65,7 @@ until [ $i == 0 ]; do
     # 模式4 只链接已安装的termux开头命令进系统
     if [ $i = 4 ]; then
         su -c '
-        mount --remount -w /system ; mount --remount -w /
+        mount --remount -w / ; mount --remount -w /system
         
         rm /system/bin/termux*
         for a in $(ls /data/data/com.termux/files/usr/bin/termux*)
@@ -81,7 +81,7 @@ until [ $i == 0 ]; do
     # 模式5 链接已安装的所有termux命令进系统
     if [ $i = 5 ]; then
         su -c '
-        mount --remount -w /system ; mount --remount -w /
+        mount --remount -w / ; mount --remount -w /system
 
         rm /system/bin/termux*
         for a in $(ls /data/data/com.termux/files/usr/bin/)
@@ -98,7 +98,7 @@ until [ $i == 0 ]; do
     # 模式6 移除链接到系统的termux命令
     if [ $i = 6 ]; then
         su -c "
-        mount --remount -w /system ; mount --remount -w /
+        mount --remount -w / ; mount --remount -w /system
 
         for a in $(ls -l /system/bin/* | grep termux | sed 's/.*:.. //g;s/ ->.*//g')
         do
@@ -113,7 +113,7 @@ until [ $i == 0 ]; do
     # 模式7 使用小贝塔去广告hosts
     if [ $i = 7 ]; then
         su -c '
-        mount --remount -w /system ; mount --remount -w /
+        mount --remount -w / ; mount --remount -w /system
         
         curl -sL https://raw.githubusercontent.com/rentianyu/Ad-set-hosts/master/hosts > /system/etc/hosts &&
         
@@ -125,7 +125,7 @@ until [ $i == 0 ]; do
     # 模式8 解除小米软件机型限制
     if [ $i = 8 ]; then
         su -c '
-        mount --remount -w /system ; mount --remount -w /
+        mount --remount -w / ; mount --remount -w /system
         
         grep 'ro.miui.ui.version.name' /system/build.prop && echo 已解除限制，无需再次解除 ||
         echo 'ro.miui.ui.version.name=V12' >> /system/build.prop
