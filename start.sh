@@ -270,8 +270,11 @@ until [ $i == 0 ]; do
     
     omf install ays"
 
+    fi
+
+
     # 2 模式独有
-    elif [ $i = 2 ]; then
+    if [ $i = 2 ]; then
 
         # Ubuntu
         echo 安装软件包
@@ -332,11 +335,7 @@ until [ $i == 0 ]; do
     ubuntu config --default-user root'
 
     "
-
-    # 输入错误
-    else
-        echo 输入错误，正在退出脚本
-        exit 0
+    
     fi
 
 done
