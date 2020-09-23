@@ -1,4 +1,5 @@
 
+clear
 # 前言
     echo '
     本项目仅为自用，出问题改不负责
@@ -163,12 +164,12 @@ if [ $i = 1 ]; then
     if ps -A | grep sshd
     else
         sshd
-    end
+    end > /dev/null
 
     if ps -A | grep crond
     else
         crond
-    end
+    end > /dev/null
 
     ">>$s
 
@@ -182,7 +183,7 @@ if [ $i = 1 ]; then
     ln -s $i /system/bin
     done
     mount -o ro,remount /
-    mount -o ro,remount /system'
+    mount -o ro,remount /system' > /dev/null
 
     echo 安装oy my fish
     termux-clipboard-set "curl -L https://get.oh-my.fish | fish ; omf install ays"
