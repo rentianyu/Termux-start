@@ -85,6 +85,7 @@ if [[ $i = 1 || $i = 2 ]]; then
 
     alias mi6='ssh mi6'
     alias vps='ssh vps'
+    alias pad='ssh pad'
     alias router='ssh router'
 
     
