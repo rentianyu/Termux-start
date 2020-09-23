@@ -84,7 +84,6 @@ if [[ $i = 1 || $i = 2 ]]; then
     alias vps='ssh vps'
     alias router='ssh router'
 
-    thefuck --alias | source
     
     ">$s
 
@@ -109,6 +108,11 @@ if [[ $i = 1 || $i = 2 ]]; then
         HostName 0
         User root
         Port 22
+
+    Host pad
+        HostName 192.168.0.2
+        User u0_a
+        Port 8022
 
     Host router
         HostName 192.168.0.1
@@ -155,27 +159,33 @@ if [ $i = 1 ]; then
     echo "
     alias cdq='cd ~/qq;ls'
     alias cda='cd /sdcard/ADM;ls'
-    ps -A | grep sshd || sshd
-    ps -A | grep crond || crond
+
+    if ps -A | grep sshd
+    else
+        sshd
+    end
+
+    if ps -A | grep crond
+    else
+        crond
+    end
+
     ">>$s
 
     echo 链接termux类命令到系统
     su -c '
-    mount -o rw,remount /system/bin
+    mount -o rw,remount /
+    mount -o rw,remount /system
     rm -rf /system/bin/termux*
     for i in $(ls /data/data/com.termux/files/usr/bin/termux*)
     do
     ln -s $i /system/bin
     done
-    mount -o ro,remount /system/bin'
+    mount -o ro,remount /
+    mount -o ro,remount /system'
 
     echo 安装oy my fish
-    echo "
-
-    curl -L https://get.oh-my.fish | fish
-
-    omf install ays
-    "
+    termux-clipboard-set "curl -L https://get.oh-my.fish | fish ; omf install ays"
 
 # 2 模式独有
 elif [ $i = 2 ]; then
@@ -199,6 +209,9 @@ elif [ $i = 2 ]; then
     alias winpaste='powershell.exe Get-Clipboard'
 
     cd /mnt/c/Users/Admin/Desktop
+
+    thefuck --alias | source
+    
     ">>$s
 
     echo 创建和链接一些文件
