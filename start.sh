@@ -99,7 +99,8 @@ until [ $i == 0 ]; do
     if [ $i = 6 ]; then
         su -c "
         mount --remount -w /system ; mount --remount -w /
-        
+
+        rm /system/bin/termux*
         for a in $(ls -l /system/bin/* | grep termux | sed 's/.*:.. //g;s/ ->.*//g')
         do
             rm $a
@@ -335,7 +336,7 @@ until [ $i == 0 ]; do
     ubuntu config --default-user root'
 
     "
-    
+
     fi
 
 done
