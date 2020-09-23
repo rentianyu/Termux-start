@@ -186,7 +186,10 @@ if [ $i = 1 ]; then
     mount -o ro,remount /system' > /dev/null
 
     echo 安装oy my fish
-    termux-clipboard-set "curl -L https://get.oh-my.fish | fish ; omf install ays"
+    echo "
+    curl -L https://get.oh-my.fish | fish
+    
+    omf install ays"
 
 # 2 模式独有
 elif [ $i = 2 ]; then
