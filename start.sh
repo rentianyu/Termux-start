@@ -26,7 +26,7 @@ until [ $i == 0 ]; do
     3. 为 vps 安装DD系统
     4. 只链接已安装的termux开头命令进系统
     5. 链接已安装的所有termux命令进系统
-    6. 删除链接到系统的termux命令
+    6. 移除链接到系统的termux命令
     7. 使用小贝塔去广告hosts
     8. 解除小米软件机型限制
 
@@ -95,15 +95,15 @@ until [ $i == 0 ]; do
     fi
 
 
-    # 模式6 删除链接到系统的termux命令
+    # 模式6 移除链接到系统的termux命令
     if [ $i = 6 ]; then
         su -c "
         mount --remount -w /system ; mount --remount -w /
 
-        rm /system/bin/termux*
+        unlink /system/bin/termux*
         for a in $(ls -l /system/bin/* | grep termux | sed 's/.*:.. //g;s/ ->.*//g')
         do
-            rm $a
+            unlink $a
         done
         
         mount --remount -r /system ; mount --remount -r /
