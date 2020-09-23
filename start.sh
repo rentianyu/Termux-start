@@ -133,7 +133,7 @@ if [ $i = 1 ]; then
 
     # Termux
     echo 安装软件包
-    apt update -y && apt install -y termux-api termux-auth tsu cronie
+    apt update -y && apt install -y termux-api termux-auth tsu cronie openssh
 
     if [ -d ~/.ssh/*.pub ]; then
         apt install -y openssh
