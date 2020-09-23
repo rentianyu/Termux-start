@@ -2,9 +2,11 @@
 clear
 # 前言
     echo '
-    本项目仅为自用，出问题改不负责
-    项目地址：https://github.com/rentianyu/install
-    此脚本为Termux或Ubuntu安装之后的初始化脚本
+    ### 欢迎使用小贝塔初始化脚本 ###
+
+    - 本脚本仅为自用，出问题改不负责
+    - 项目地址：https://github.com/rentianyu/install
+    - 此脚本为Termux或Ubuntu安装之后的初始化脚本
 
     # 如果是要在Termux上运行请注意以下几点
     - 至少授予Termux储存权限（最好是权限全给）
