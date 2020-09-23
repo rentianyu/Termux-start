@@ -128,7 +128,8 @@ until [ $i == 0 ]; do
         su -c '
         mount --remount -w /system ; mount --remount -w /
         
-        echo 'ro.miui.ui.version.name=V12' >> /system/build.prop &&
+        grep 'ro.miui.ui.version.name' /system/build.prop && echo 已解除限制，无需再次解除 ||
+        echo 'ro.miui.ui.version.name=V12' >> /system/build.prop
         
         mount --remount -r /system ; mount --remount -r /
         sleep 8
