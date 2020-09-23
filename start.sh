@@ -74,7 +74,7 @@ until [ $i == 0 ]; do
         done
         
         mount --remount -r /system ; mount --remount -r /
-        sleep 8
+
         echo 执行完毕'
     fi
 
@@ -90,7 +90,7 @@ until [ $i == 0 ]; do
         done
         
         mount --remount -r /system ; mount --remount -r /
-        sleep 8
+
         echo 执行完毕'
     fi
 
@@ -107,7 +107,7 @@ until [ $i == 0 ]; do
         done
         
         mount --remount -r /system ; mount --remount -r /
-        sleep 8
+
         echo 执行完毕"
     fi
 
@@ -119,7 +119,7 @@ until [ $i == 0 ]; do
         curl -sL https://raw.githubusercontent.com/rentianyu/Ad-set-hosts/master/hosts > /system/etc/hosts &&
         
         mount --remount -r /system ; mount --remount -r /
-        sleep 8
+
         echo 执行完毕'
     fi
 
@@ -132,7 +132,7 @@ until [ $i == 0 ]; do
         echo 'ro.miui.ui.version.name=V12' >> /system/build.prop
         
         mount --remount -r /system ; mount --remount -r /
-        sleep 8
+
         echo 执行完毕'
     fi
 
@@ -339,5 +339,7 @@ until [ $i == 0 ]; do
     "
 
     fi
+    
+    sleep 10s
 
 done
