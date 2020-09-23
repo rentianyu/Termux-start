@@ -110,7 +110,7 @@ if [[ $i = 1 || $i = 2 ]]; then
         Port 22
 
     Host pad
-        HostName 192.168.0.2
+        HostName 192.168.0.3
         User u0_a
         Port 8022
 
