@@ -100,10 +100,10 @@ until [ $i == 0 ]; do
         su -c "
         mount --remount -w /system ; mount --remount -w /
 
-        unlink /system/bin/termux*
+        rm /system/bin/termux*
         for a in $(ls -l /system/bin/* | grep termux | sed 's/.*:.. //g;s/ ->.*//g')
         do
-            unlink $a
+            rm $a
         done
         
         mount --remount -r /system ; mount --remount -r /
@@ -339,7 +339,7 @@ until [ $i == 0 ]; do
     "
 
     fi
-    
+
     sleep 10s
 
 done
