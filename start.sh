@@ -47,7 +47,7 @@ until [ $i == 0 ]; do
     # 判断 2 模式是否为 root 用户
     if [[ $i = 2 && $(whoami) != root ]]; then
         echo "当前不是root用户，已退出脚本,请切换为root用户再执行"
-        exit 0
+        exit 1
     fi
 
     # 模式3 为 vps 安装DD系统
@@ -58,14 +58,17 @@ until [ $i == 0 ]; do
         bash Network-Reinstall-System-Modify.sh -Ubuntu_18.04
         else
             echo "当前不是root用户，已退出脚本,请切换为root用户再执行"
-            exit 0
+            exit 1
         fi
     fi
 
     # 模式4 只链接已安装的termux开头命令进系统
+    # 定义挂载读写命令
+    w='mount --remount -w / ; mount --remount -w /system'
+    r='mount --remount -r /system ; mount --remount -r /'
     if [ $i = 4 ]; then
         su -c '
-        mount --remount -w / ; mount --remount -w /system
+        $w
         
         rm /system/bin/termux*
         for a in $(ls /data/data/com.termux/files/usr/bin/termux*)
@@ -73,7 +76,7 @@ until [ $i == 0 ]; do
             ln -s $a /system/bin
         done
         
-        mount --remount -r /system ; mount --remount -r /
+        $r
 
         echo 执行完毕'
     fi
@@ -81,7 +84,7 @@ until [ $i == 0 ]; do
     # 模式5 链接已安装的所有termux命令进系统
     if [ $i = 5 ]; then
         su -c '
-        mount --remount -w / ; mount --remount -w /system
+        $w
 
         rm /system/bin/termux*
         for a in $(ls /data/data/com.termux/files/usr/bin/)
@@ -89,7 +92,7 @@ until [ $i == 0 ]; do
             ln -s $a /system/bin
         done
         
-        mount --remount -r /system ; mount --remount -r /
+        $r
 
         echo 执行完毕'
     fi
@@ -98,14 +101,19 @@ until [ $i == 0 ]; do
     # 模式6 移除链接到系统的termux命令
     if [ $i = 6 ]; then
         su -c "
-        mount --remount -w / ; mount --remount -w /system
+        $w
 
-        for a in $(ls -l /system/bin/* | grep termux | sed 's/.*:.. //g;s/ ->.*//g')
+        # for a in $(ls -l /system/bin/* | grep termux | sed 's/.*:.. //g;s/ ->.*//g')
+        # do
+        #     rm $a
+        # done
+
+        # 依心所言提供
+        for a in $(find /system/bin -type l -exec ls -l {} + | sed -n '/com.termux/s:lrwxrwxrwx[^/]*\([^ ]*\) .*:\1:p')
         do
-            rm $a
+            unlink $a
         done
-        
-        mount --remount -r /system ; mount --remount -r /
+        $r
 
         echo 执行完毕"
     fi
@@ -113,11 +121,11 @@ until [ $i == 0 ]; do
     # 模式7 使用小贝塔去广告hosts
     if [ $i = 7 ]; then
         su -c '
-        mount --remount -w / ; mount --remount -w /system
+        $w
         
         curl -sL https://raw.githubusercontent.com/rentianyu/Ad-set-hosts/master/hosts > /system/etc/hosts &&
         
-        mount --remount -r /system ; mount --remount -r /
+        $r
 
         echo 执行完毕'
     fi
@@ -125,12 +133,12 @@ until [ $i == 0 ]; do
     # 模式8 解除小米软件机型限制
     if [ $i = 8 ]; then
         su -c '
-        mount --remount -w / ; mount --remount -w /system
+        $w
         
         grep 'ro.miui.ui.version.name' /system/build.prop && echo 已解除限制，无需再次解除 ||
         echo 'ro.miui.ui.version.name=V12' >> /system/build.prop
         
-        mount --remount -r /system ; mount --remount -r /
+        $r
 
         echo 执行完毕'
     fi
@@ -169,6 +177,7 @@ until [ $i == 0 ]; do
     alias gitp='git add . ; git commit -m auto-push ; git push ; echo push成功'
     alias gitw='git add . ; git commit -m auto-push ; git push ; git push github master ; echo push成功'
 
+    #alias nmap='nmap.exe'
     alias nmap1='nmap 127.0.0.1'
     alias nmap2='nmap 192.168.0.2'
     alias nmap6='nmap 192.168.0.6'
@@ -296,6 +305,9 @@ until [ $i == 0 ]; do
     cd /mnt/c/Users/Admin/Desktop
 
     thefuck --alias | source
+
+    #alias nmap='nmap.exe'
+
     
     " >>$s
 
