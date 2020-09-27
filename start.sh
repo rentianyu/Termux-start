@@ -53,7 +53,7 @@ until [ $i == 0 ]; do
     # 模式3 为 vps 安装DD系统
     if [ $i = 3 ]; then
         if [ $(whoami) = root ]; then
-        apt install -y xz-utils openssl gawk file &&
+        apt install -y xz-utils openssl gawk file cpio gzip dirname basename &&
         wget --no-check-certificate https://shell.p1e.cn/reinstall/Network-Reinstall-System-Modify.sh && chmod a+x Network-Reinstall-System-Modify.sh &&
         bash Network-Reinstall-System-Modify.sh -Ubuntu_18.04
         else
@@ -156,7 +156,7 @@ until [ $i == 0 ]; do
         apt autoremove -y
 
         echo 安装应用包
-        apt install -y vim git zip unzip curl wget fish nmap jq dos2unix htop
+        apt install -y vim git zip unzip curl wget fish nmap jq dos2unix htop tree neofetch
 
         echo 定义一些快捷命令
         mkdir -p ~/.config/fish
