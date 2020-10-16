@@ -107,7 +107,7 @@ if [ $i = 6 ]; then
     # 依心所言提供
     for a in $(find /system/bin -type l -exec ls -l {} + | sed -n '/com.termux/s:lrwxrwxrwx[^/]*\([^ ]*\) .*:\1:p')
     do
-        unlink $a
+        rm $a
     done
     mount --remount -r /system ; mount --remount -r /
 
