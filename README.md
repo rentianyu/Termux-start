@@ -24,8 +24,10 @@
 
 ## 二、使用方法
 
-```bash
-apt update -y && apt install -y wget && bash <(wget -qO- https://raw.githubusercontent.com/rentianyu/install/master/start.sh)
+```sh
+apt update -y && apt install -y curl && curl https://raw.githubusercontent.com/rentianyu/install/master/start.sh > xiaobeita.sh
+chmod +x xiaobeita.sh
+sh xiaobeita.sh
 ```
 
 ## 三、Termux有关软件下载地址
