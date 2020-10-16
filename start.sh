@@ -23,9 +23,9 @@ echo '
 1. 为 Termux 初始化
 2. 为 Ubuntu 初始化
 3. 为 vps 安装DD系统
-4. 只链接已安装的termux开头命令进系统
-5. 链接已安装的所有termux命令进系统
-6. 移除链接到系统的termux命令
+4. 勿用
+5. 增加termux命令路径到系统变量
+6. 删除系统变量的termux命令路径
 7. 使用小贝塔去广告hosts
 8. 解除小米软件机型限制
 
@@ -77,16 +77,12 @@ if [ $i = 4 ]; then
     echo 执行完毕'
 fi
 
-# 模式5 链接已安装的所有termux命令进系统
+# 模式5 增加termux命令路径到系统变量
 if [ $i = 5 ]; then
     su -c '
     mount --remount -w / ; mount --remount -w /system
 
-    rm /system/bin/termux*
-    for a in $(ls /data/data/com.termux/files/usr/bin/)
-    do
-        ln -s $a /system/bin
-    done
+    echo 'export PATH=$PATH:/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets' >> /system/etc/mkshrc && echo "成功"
     
     mount --remount -r /system ; mount --remount -r /
 
@@ -94,21 +90,13 @@ if [ $i = 5 ]; then
 fi
 
 
-# 模式6 移除链接到系统的termux命令
+# 模式6 删除系统变量的termux命令路径
 if [ $i = 6 ]; then
     su -c "
     mount --remount -w / ; mount --remount -w /system
 
-    # for a in $(ls -l /system/bin/* | grep termux | sed 's/.*:.. //g;s/ ->.*//g')
-    # do
-    #     rm $a
-    # done
+    sed -i '/termux/d' /system/etc/mkshrc && echo "成功"
 
-    # 依心所言提供
-    for a in $(find /system/bin -type l -exec ls -l {} + | sed -n '/com.termux/s:lrwxrwxrwx[^/]*\([^ ]*\) .*:\1:p')
-    do
-        rm $a
-    done
     mount --remount -r /system ; mount --remount -r /
 
     echo 执行完毕"
