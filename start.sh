@@ -1,4 +1,4 @@
-
+#!/bin/bash
 clear
 
 # 前言
