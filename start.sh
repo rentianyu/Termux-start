@@ -19,13 +19,12 @@ echo '
 
 # 请准备完毕后输入以下数字继续
 
-0. 退出脚本
 1. 为 Termux 初始化
 2. 为 Ubuntu 初始化
 3. 为 vps 安装DD系统
-4. 勿用
-5. 增加termux命令路径到系统变量
-6. 删除系统变量的termux命令路径
+4. 只链接已安装的termux开头命令进系统
+5. 链接已安装的所有termux命令进系统
+6. 删除系统所有的termux命令链接
 7. 使用小贝塔去广告hosts
 8. 解除小米软件机型限制
 
@@ -36,12 +35,6 @@ echo '
 
 # 等待传入参数
 read -t 600 i
-
-# 模式0 退出脚本判断
-if [ $i = 0 ]; then
-    echo '脚本已退出，欢迎再次使用！'
-    exit 0
-fi
 
 # 判断 2 模式是否为 root 用户
 if [[ $i = 2 && $(whoami) != root ]]; then
@@ -63,44 +56,45 @@ fi
 
 # 模式4 只链接已安装的termux开头命令进系统
 if [ $i = 4 ]; then
+    apt update -y && apt install -y termux-tools termux-api termux-auth
+    su -c '
+    mount --remount -w / ; mount --remount -w /system
+
+    ln -s /data/data/com.termux/files/usr/bin/termux* /system/bin
+    
+    mount --remount -r /system ; mount --remount -r /
+    echo 执行完毕'
+fi
+
+# 模式5 链接已安装的所有termux命令进系统
+if [ $i = 4 ]; then
+    apt update -y && apt install -y termux-tools termux-api termux-auth
     su -c '
     mount --remount -w / ; mount --remount -w /system
     
     rm /system/bin/termux*
-    for a in $(ls /data/data/com.termux/files/usr/bin/termux*)
+    for a in $(ls /data/data/com.termux/files/usr/bin/*)
     do
         ln -s $a /system/bin
     done
     
     mount --remount -r /system ; mount --remount -r /
-
-    echo 执行完毕'
-fi
-
-# 模式5 增加termux命令路径到系统变量
-if [ $i = 5 ]; then
-    su -c '
-    mount --remount -w / ; mount --remount -w /system
-
-    echo 'export PATH=$PATH:/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets' >> /system/etc/mkshrc && echo "成功"
-    
-    mount --remount -r /system ; mount --remount -r /
-
     echo 执行完毕'
 fi
 
 
-# 模式6 删除系统变量的termux命令路径
-if [ $i = 6 ]; then
-    su -c "
-    mount --remount -w / ; mount --remount -w /system
+# 模式6 删除系统所有的termux命令链接
+su -c "
+mount --remount -w / ; mount --remount -w /system
 
-    sed -i '/termux/d' /system/etc/mkshrc && echo "成功"
+m=$(ls -l /system/bin/* | grep termux | sed 's/.*:.. //g;s/ ->.*//g')
+for a in $m
+do
+    rm $a
+done
 
-    mount --remount -r /system ; mount --remount -r /
-
-    echo 执行完毕"
-fi
+mount --remount -r /system ; mount --remount -r /
+echo 执行完毕"
 
 # 模式7 使用小贝塔去广告hosts
 if [ $i = 7 ]; then
@@ -192,7 +186,7 @@ Host mi6
     Port 8022
 
 Host vps
-    HostName 0
+    HostName 
     User root
     Port 22
 
@@ -272,31 +266,24 @@ if [ $i = 2 ]; then
 
     # Ubuntu
     echo 安装软件包
-    apt update -y && apt install -y python nodejs npm python3-dev python3-pip python3-setuptools
-    pip3 install thefuck
+    apt update -y && apt install -y python nodejs npm python3 python3-dev python3-pip python3-setuptools
 
     echo 设置默认shell为fish并清空欢迎语
     chsh -s $(which fish) && fish -c "set -U fish_greeting"
 
     echo 定义一些命令
     echo "
-#alias cdd='cd /mnt/c/Users/Admin/Desktop'
 
 alias adb='adb.exe'
 alias clip='clip.exe'
 alias winpaste='powershell.exe Get-Clipboard'
 
-cd /mnt/c/Users/Admin/Desktop
-
-thefuck --alias | source
-
 #alias nmap='nmap.exe'
 
+#cd /mnt/c/Users/Admin/Desktop
+#alias cdd='cd /mnt/c/Users/Admin/Desktop'
 
 " >>$s
-
-    echo 创建和链接一些文件
-    ln -s /mnt/d/10.code/2.Github ~/github
 
     echo Ubuntu设置终端为中文
     apt install -y fonts-noto-cjk language-pack-zh-hans
@@ -322,14 +309,17 @@ LC_ALL=zh_CN.UTF-8' >/etc/default/locale
     echo 安装oy my fish和其他
     echo "
 
+# WSL 专用
+ln -s /mnt/d/10.code/2.Github ~/github
 echo 'cd /mnt/c/Users/Admin/Desktop'>>~/.config/fish/config.fish
-
+# 通用
 curl -L https://get.oh-my.fish | fish
 omf install ays
 
 
 # 设置WSL默认登录用户为root
 ubuntu config --default-user root'
+
 
 "
 
