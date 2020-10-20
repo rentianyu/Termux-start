@@ -306,6 +306,10 @@ LC_ALL=zh_CN.UTF-8' >/etc/default/locale
     rm -rf /etc/localtime
     ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
+    echo 设置root登录
+    sed -i 's/#PermitRootLogin/PermitRootLogin/' /etc/ssh/sshd_config
+    sed -i 's/#ClientAliveInterval 0/ClientAliveInterval 60/' /etc/ssh/sshd_config
+
     echo 安装oy my fish和其他
     echo "
 
