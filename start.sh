@@ -67,7 +67,7 @@ if [ $i = 4 ]; then
 fi
 
 # 模式5 链接已安装的所有termux命令进系统
-if [ $i = 4 ]; then
+if [ $i = 5 ]; then
     apt update -y && apt install -y termux-tools termux-api termux-auth
     su -c '
     mount --remount -w / ; mount --remount -w /system
@@ -84,17 +84,25 @@ fi
 
 
 # 模式6 删除系统所有的termux命令链接
+if [ $i = 6 ]; then
 su -c "
-mount --remount -w / ; mount --remount -w /system
+    mount --remount -w / ; mount --remount -w /system
 
-m=$(ls -l /system/bin/* | grep termux | sed 's/.*:.. //g;s/ ->.*//g')
-for a in $m
-do
-    rm $a
-done
+    # m=($(ls -l /system/bin/* | grep termux | sed 's/.*:.. //g;s/ ->.*//g'))
+    # for a in $m
+    # do
+    #     rm $a
+    # done
 
-mount --remount -r /system ; mount --remount -r /
-echo 执行完毕"
+    # 依心所言提供
+    for a in $(find /system/bin -type l -exec ls -l {} + | sed -n '/com.termux/s:lrwxrwxrwx[^/]*\([^ ]*\) .*:\1:p')
+    do
+        rm $a
+    done
+
+    mount --remount -r /system ; mount --remount -r /
+    echo 执行完毕"
+fi
 
 # 模式7 使用小贝塔去广告hosts
 if [ $i = 7 ]; then
