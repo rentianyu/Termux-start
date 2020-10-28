@@ -174,6 +174,8 @@ alias vps='ssh vps'
 alias pad='ssh pad'
 alias router='ssh router'
 
+alias myip='curl ifconfig.me'
+
 
 " >$s
 
