@@ -45,8 +45,8 @@ fi
 # 模式3 为 vps 安装DD系统
 if [ $i = 3 ]; then
     if [ $(whoami) = root ]; then
-    apt install -y xz-utils openssl gawk file cpio gzip dirname basename &&
-    wget --no-check-certificate https://shell.p1e.cn/reinstall/Network-Reinstall-System-Modify.sh && chmod a+x Network-Reinstall-System-Modify.sh &&
+    apt-get install -y xz-utils openssl gawk file wget &&
+    wget http://shell.p1e.cn/reinstall/Network-Reinstall-System-Modify.sh && chmod a+x Network-Reinstall-System-Modify.sh &&
     bash Network-Reinstall-System-Modify.sh -Ubuntu_18.04
     else
         echo "当前不是root用户，已退出脚本,请切换为root用户再执行"
