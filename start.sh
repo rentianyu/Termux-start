@@ -275,8 +275,8 @@ fi
 if [ $i = 2 ]; then
 
     # Ubuntu
-    echo 安装软件包
-    apt update -y && apt install -y python nodejs npm python3 python3-dev python3-pip python3-setuptools
+    # echo 安装软件包
+    # apt update -y && apt install -y python nodejs npm python3 python3-dev python3-pip python3-setuptools
 
     echo 设置默认shell为fish并清空欢迎语
     chsh -s $(which fish) && fish -c "set -U fish_greeting"
