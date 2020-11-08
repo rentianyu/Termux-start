@@ -179,12 +179,17 @@ alias myip='curl ifconfig.me'
 
 " >$s
 
+    echo 清空fish欢迎语
+    fish -c "set -U fish_greeting" 
+    
     echo 创建一些文件夹和一些文件
     mkdir ~/task
-    : >~/task/day.sh
-    chmod +x ~/task/day.sh
-    : >~/task/hour.sh
-    chmod +x ~/task/hour.sh
+    echo '#!/bin/bash' > ~/task/sample.sh
+    chmod +x ~/task/sample.sh
+
+    cp ~/task/sample.sh ~/task/day.sh
+    cp ~/task/sample.sh ~/task/hour.sh
+    cp ~/task/sample.sh ~/task/remind.sh
 
     echo 配置ssh
     if [ -d ~/.ssh/config ]; then
@@ -233,7 +238,7 @@ if [ $i = 1 ]; then
     echo 设置默认shell为fish并清空termux启动语和fish欢迎语
     chsh -s fish
     : >$PREFIX/etc/motd
-    fish -c "set -U fish_greeting"
+
 
     echo 启用三行功能按键
     mkdir ~/.termux
@@ -278,8 +283,8 @@ if [ $i = 2 ]; then
     # echo 安装软件包
     # apt update -y && apt install -y python nodejs npm python3 python3-dev python3-pip python3-setuptools
 
-    echo 设置默认shell为fish并清空欢迎语
-    chsh -s $(which fish) && fish -c "set -U fish_greeting"
+    echo 设置默认shell
+    chsh -s $(which fish)
 
     echo 定义一些命令
     echo "
