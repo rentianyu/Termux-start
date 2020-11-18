@@ -301,21 +301,9 @@ alias winpaste='powershell.exe Get-Clipboard'
 " >>$s
 
     echo Ubuntu设置终端为中文
-    apt install -y fonts-noto-cjk language-pack-zh-hans
-    echo '
-LANG="zh_CN.UTF-8"
-LANGUAGE="zh_CN:zh:en_US:en"
-LC_NUMERIC="zh_CN.UTF-8"
-LC_TIME="zh_CN.UTF-8"
-LC_MONETARY="zh_CN.UTF-8"
-LC_PAPER="zh_CN.UTF-8"
-LC_IDENTIFICATION="zh_CN.UTF-8"
-LC_NAME="zh_CN.UTF-8"
-LC_ADDRESS="zh_CN.UTF-8"
-LC_TELEPHONE="zh_CN.UTF-8"
-LC_MEASUREMENT="zh_CN.UTF-8"
-LC_ALL=zh_CN.UTF-8' >/etc/default/locale
-    locale-gen zh_CN.UTF-8
+    apt-get update
+    apt-get install language-pack-zh-hans
+    update-locale LANG=zh_CN.UTF-8
 
     echo Ubuntu设置终端为北京时间
     rm -rf /etc/localtime
@@ -333,7 +321,7 @@ ln -s /mnt/d/10.code/2.Github ~/github
 echo 'cd /mnt/c/Users/Admin/Desktop'>>~/.config/fish/config.fish
 # 通用
 curl -L https://get.oh-my.fish | fish
-omf install ays
+omf install numist
 
 
 # 设置WSL默认登录用户为root
