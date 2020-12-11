@@ -58,11 +58,11 @@ fi
 if [ $i = 4 ]; then
     apt update -y && apt install -y termux-tools termux-api termux-auth
     su -c '
-    mount --remount -w / ; mount --remount -w /system
+    mount -o rw,remount -t auto /system ; mount -o rw,remount -t auto /
 
     ln -s /data/data/com.termux/files/usr/bin/termux* /system/bin
     
-    mount --remount -r /system ; mount --remount -r /
+    mount -o ro,remount -t auto / ; mount -o ro,remount -t auto /system
     echo 执行完毕'
 fi
 
@@ -70,15 +70,15 @@ fi
 if [ $i = 5 ]; then
     apt update -y && apt install -y termux-tools termux-api termux-auth
     su -c '
-    mount --remount -w / ; mount --remount -w /system
-    
-    rm /system/bin/termux*
-    for a in $(ls /data/data/com.termux/files/usr/bin/*)
-    do
-        ln -s $a /system/bin
-    done
-    
-    mount --remount -r /system ; mount --remount -r /
+mount -o rw,remount -t auto /system ; mount -o rw,remount -t auto /
+
+rm /system/bin/termux*
+for a in $(ls /data/data/com.termux/files/usr/bin/*)
+do
+    ln -s $a /system/bin
+done
+
+mount -o ro,remount -t auto / ; mount -o ro,remount -t auto /system
     echo 执行完毕'
 fi
 
@@ -86,32 +86,22 @@ fi
 # 模式6 删除系统所有的termux命令链接
 if [ $i = 6 ]; then
 su -c "
-    mount --remount -w / ; mount --remount -w /system
+    mount -o rw,remount -t auto /system ; mount -o rw,remount -t auto /
 
-    # m=($(ls -l /system/bin/* | grep termux | sed 's/.*:.. //g;s/ ->.*//g'))
-    # for a in $m
-    # do
-    #     rm $a
-    # done
+    rm "$(ls -l /system/bin/* | grep termux | sed 's/.*:.. //g;s/ ->.*//g')"
 
-    # 依心所言提供
-    for a in $(find /system/bin -type l -exec ls -l {} + | sed -n '/com.termux/s:lrwxrwxrwx[^/]*\([^ ]*\) .*:\1:p')
-    do
-        rm $a
-    done
-
-    mount --remount -r /system ; mount --remount -r /
+    mount -o ro,remount -t auto / ; mount -o ro,remount -t auto /system
     echo 执行完毕"
 fi
 
 # 模式7 使用小贝塔去广告hosts
 if [ $i = 7 ]; then
     su -c '
-    mount --remount -w / ; mount --remount -w /system
+    mount -o rw,remount -t auto /system ; mount -o rw,remount -t auto /
     
     curl -sL https://raw.githubusercontent.com/rentianyu/Ad-set-hosts/master/hosts > /system/etc/hosts &&
     
-    mount --remount -r /system ; mount --remount -r /
+    mount -o ro,remount -t auto / ; mount -o ro,remount -t auto /system
 
     echo 执行完毕'
 fi
@@ -119,12 +109,12 @@ fi
 # 模式8 解除小米软件机型限制
 if [ $i = 8 ]; then
     su -c '
-    mount --remount -w / ; mount --remount -w /system
+    mount -o rw,remount -t auto /system ; mount -o rw,remount -t auto /
     
     grep 'ro.miui.ui.version.name' /system/build.prop && echo 已解除限制，无需再次解除 ||
     echo 'ro.miui.ui.version.name=V12' >> /system/build.prop
     
-    mount --remount -r /system ; mount --remount -r /
+    mount -o ro,remount -t auto / ; mount -o ro,remount -t auto /system
 
     echo 执行完毕'
 fi
