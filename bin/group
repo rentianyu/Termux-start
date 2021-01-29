@@ -1,0 +1,2 @@
+#!/bin/bash
+curl "127.0.0.1:5700/send_msg" -d "group_id=773276432" --data-urlencode "message=${*}"

@@ -1,0 +1,2 @@
+#!/bin/bash
+curl -s v1.alapi.cn/api/mryw/random|jq -r '.data | {title,author,content}[]'  | sed 's:<p>:  :g;s:</p>:\n:g'

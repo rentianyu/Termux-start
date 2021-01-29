@@ -1,36 +1,21 @@
-# 一、项目简介
+# 笔记仓库
 
-+ 此脚本为Termux或Ubuntu安装之后的初始化脚本
-+ 本项目仅为自用，出问题改不负责
-+ 项目地址：https://github.com/rentianyu/install
-+ 去广告hosts项目地址：https://github.com/rentianyu/Ad-set-hosts
+## 一、仓库简介
 
-## **如果是要在Termux上运行请注意以下几点**
+此仓库为自用仓库，储存已经研究的一些代码和脚本及笔记。
 
-1. 授予Termux、Termux-API软件所有权限、自启动权限和root权限
-2. 安卓9、10 自用，其他自测
-3. 链接到系统指的是链接到 /system/bin/ 目录下
+## 二、仓库目录
 
-## **目前实现功能如下**
+- [Termux 软件](termux)
+- [Ubuntu 系统](ubuntu)
+- [WSL 有关](wsl)
 
-1. 为 Termux 初始化
-2. 为 Ubuntu 初始化
-3. 为 vps 安装DD系统
-4. 只链接已安装的termux开头命令进系统
-5. 链接已安装的所有termux命令进系统
-6. 删除链接到系统的termux命令
-7. 使用小贝塔去广告hosts
-8. 解除小米软件机型限制
+- [Magisk 有关脚本](magisk)
 
-## 二、使用方法
+- [Vim 配置文件](.vimrc)
+- [Fish 配置文件](config/fish/config.fish)
+- [SSH 配置文件](ssh.sh)
 
-```sh
-apt update -y && apt install -y curl && curl https://raw.githubusercontent.com/rentianyu/install/master/start.sh > ~/xiaobeita.sh
-chmod +x ~/xiaobeita.sh
-bash ~/xiaobeita.sh
-```
-
-## 三、Termux有关软件下载地址
-
-- Termux: https://f-droid.org/packages/com.termux
-- Termux-API: https://f-droid.org/packages/com.termux.api
+- [Git 有关](git.sh)
+- [Hogo 建站](hugo.sh)
+- [Openwrt 路由器有关](openwrt.sh)

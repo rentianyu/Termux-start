@@ -1,0 +1,5 @@
+{
+    ".not": {
+        "meta_event_type": "heartbeat"
+    }
+}
