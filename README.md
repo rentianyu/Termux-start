@@ -13,7 +13,6 @@
 - [Magisk 有关脚本](magisk)
 
 - [Vim 配置文件](.vimrc)
-- [Fish 配置文件](config/fish/config.fish)
 - [SSH 配置文件](ssh.sh)
 
 - [Git 有关](git.sh)
