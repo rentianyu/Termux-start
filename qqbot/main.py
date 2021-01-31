@@ -1,6 +1,14 @@
+'''
+Author: your name
+Date: 2021-01-27 21:36:36
+LastEditTime: 2021-01-31 12:55:26
+LastEditors: Please set LastEditors
+Description: In User Settings Edit
+FilePath: \install\qqbot\main.py
+'''
+from qqbot.func import *
 from flask import Flask,request
 from json import loads
-from func import *
 import requests
 import re
 
