@@ -1,7 +1,7 @@
 '''
 Author: your name
 Date: 2021-01-31 18:16:53
-LastEditTime: 2021-02-01 12:58:12
+LastEditTime: 2021-02-01 14:28:39
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: \qq\send_cq.py

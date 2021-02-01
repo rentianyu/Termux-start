@@ -1,13 +1,14 @@
 '''
 Author: your name
 Date: 2021-01-27 21:36:36
-LastEditTime: 2021-02-01 12:59:09
+LastEditTime: 2021-02-01 15:10:46
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: \install\qq\main.py
 '''
-from .func import *
-from .send import *
+
+from func import *
+from send import *
 from flask import Flask,request
 from json import loads
 import re
@@ -42,7 +43,6 @@ def server():
             if raw_message == '一言':
                 send_group_msg(words())
                 # send_group_msg(url, group_id, image)
-
 
         elif message_type == "private":
 
