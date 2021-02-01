@@ -1,4 +1,13 @@
- # 更新软件包
+#!/bin/bash
+###
+ # @Author: your name
+ # @Date: 2021-01-31 13:01:07
+ # @LastEditTime: 2021-01-31 13:10:59
+ # @LastEditors: Please set LastEditors
+ # @Description: In User Settings Edit
+ # @FilePath: \install\wsl\start.sh
+### 
+# 更新软件包
 for i in update upgrade autoremove; do apt $i -y; done
 
 # 安装应用包

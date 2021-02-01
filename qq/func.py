@@ -1,3 +1,11 @@
+'''
+Author: your name
+Date: 2021-01-31 13:01:06
+LastEditTime: 2021-02-01 12:41:28
+LastEditors: Please set LastEditors
+Description: In User Settings Edit
+FilePath: \install\qq\func.py
+'''
 import requests
 import re
 
@@ -29,3 +37,14 @@ def fund_valuation():
         data = re.findall('"gszzl":"(.*?)"', data)
         result += name+':'+data[0] +'\n'
     return result
+
+def pic_acg():
+    """ACG 图片"""
+    url = "https://v1.alapi.cn/api/acg"
+    payload = 'format=json'
+    headers = {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/x-www-form-urlencoded'
+    }
+    response = requests.request("POST", url, headers=headers, data=payload).json()
+    return response['data']['url']

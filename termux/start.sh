@@ -1,3 +1,4 @@
+#!/system/bin/sh
 # 安装软件包
 for i in update upgrade autoremove; do; apt $i -y; done
 apt install -y vim git zip unzip curl wget fish jq dos2unix htop tree neofetch termux* tsu cronie openssh
@@ -21,8 +22,6 @@ git config --global user.name "rentianyu"
 # Termux
 # 安装软件包
 apt update -y && apt install -y 
-
-
 
 # 启用三行功能按键
 mkdir ~/.termux
